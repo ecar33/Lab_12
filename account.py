@@ -15,25 +15,37 @@ class Account:
 
     def deposit(self, amount: float) -> bool:
         """
-
+        Method to deposit funds from account
         :param amount: Amount to deposit
 
         """
         try:
-            self.account_balance += float(amount)
-            return True
+            # Check if amount is a float
+            amount = float(amount)
+            if amount >= 0:
+                # Check if amount is positive
+                self.account_balance += amount
+                return True
+            else:
+                return False
         except ValueError:
             return False
 
     def withdraw(self, amount: float) -> bool:
         """
-
+        Method to withdraw funds from account
         :param amount: Amount to withdraw
 
         """
         try:
-            self.account_balance -= float(amount)
-            return True
+            # Check if amount is a float
+            amount = float(amount)
+            if (amount >= 0) and (amount <= self.account_balance):
+                # Check if amount is positive and less than or equal to current balance
+                self.account_balance -= float(amount)
+                return True
+            else:
+                return False
         except ValueError:
             return False
 
