@@ -1,5 +1,4 @@
 import pytest
-
 from account import *
 
 def test_init():
@@ -14,28 +13,28 @@ def test_deposit():
     assert account.deposit(0) == True
     assert account.deposit("test") == False
     assert account.deposit(3.1414141414) == True
-    assert account.get_balance() == 3.1414141414
+    assert account.get_balance() == pytest.approx(3.14,abs=1e-2)
     assert account.deposit(-1) == False
     assert account.deposit(9999999999) == True
-    assert account.get_balance() == pytest.approx(10000000002.14, .01)
+    assert account.get_balance() == pytest.approx(10000000002.14, abs=1e-2)
     assert account.deposit('') == False
 
 def test_withdraw():
     account = Account("test")
-    assert account.deposit(30) == True
-    assert account.get_balance() == 30
+    assert account.deposit(30.53) == True
+    assert account.get_balance() == pytest.approx(30.53, abs=1e-2)
     assert account.withdraw("test") == False
-    assert account.get_balance() == 30
-    assert account.withdraw(10) == True
+    assert account.get_balance() == pytest.approx(30.53, abs=1e-2)
+    assert account.withdraw(10.53) == True
     assert account.get_balance() == 20
     assert account.deposit(-1) == False
     assert account.get_balance() == 20
     assert account.withdraw('') == False
     assert account.get_balance() == 20
-    assert account.withdraw(20) == True
-    assert account.get_balance() == 0
-    assert account.withdraw(20) == False
-    assert account.get_balance() == 0
+    assert account.withdraw(20.22) == False
+    assert account.get_balance() == 20
+    assert account.withdraw(19.99) == True
+    assert account.get_balance() == pytest.approx(.01, abs=1e-2)
 
 
 
