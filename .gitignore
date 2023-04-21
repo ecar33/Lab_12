@@ -1,2 +1,7 @@
 /venv/
 /.pytest_cache/
+.idea/lab.iml
+.idea/misc.xml
+*.pyc
+*.xml
+*.iml
