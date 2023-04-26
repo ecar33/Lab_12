@@ -3,11 +3,11 @@ from account import *
 
 def test_init():
     test_account_1 = Account("Steve")
-    assert test_account_1.account_balance == 0
-    assert test_account_1.account_name == "Steve"
+    assert test_account_1.get_balance() == 0
+    assert test_account_1.get_name() == "Steve"
     test_account_2 = Account(0)
-    assert test_account_2.account_balance == 0
-    assert test_account_2.account_name == 0
+    assert test_account_2.get_balance() == 0
+    assert test_account_2.get_name() == 0
 def test_deposit():
     account = Account("test")
     assert account.deposit(0) == True
