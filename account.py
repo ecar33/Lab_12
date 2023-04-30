@@ -5,10 +5,8 @@ class Account:
 
     def __init__(self, name: str):
         """
-        Function to set up account object.
-        :param self.__account_name: Person's name
-        :param self.__account_balance: Person's account balance
-
+        Constructor to create the initial state of an Account object.
+        :param name: The name of the account holder as a string.
         """
         self.__account_name = name
         self.__account_balance = 0
@@ -23,7 +21,7 @@ class Account:
         try:
             # Check if amount is a float
             amount = float(amount)
-            if amount >= 0:
+            if amount > 0:
                 # Check if amount is positive
                 self.__account_balance += amount
                 return True
