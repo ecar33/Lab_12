@@ -40,7 +40,7 @@ class Account:
         try:
             # Check if amount is a float
             amount = float(amount)
-            if (amount >= 0) and (amount <= self.get_balance()):
+            if (amount > 0) and (amount <= self.get_balance()):
                 # Check if amount is positive and less than or equal to current balance
                 self.__account_balance -= float(amount)
                 return True
