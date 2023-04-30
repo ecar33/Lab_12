@@ -10,7 +10,7 @@ def test_init():
     assert test_account_2.get_name() == 0
 def test_deposit():
     account = Account("test")
-    assert account.deposit(0) == True
+    assert account.deposit(0) == False
     assert account.deposit("test") == False
     assert account.deposit(3.1414141414) == True
     assert account.get_balance() == pytest.approx(3.14,abs=1e-2)
@@ -35,6 +35,7 @@ def test_withdraw():
     assert account.get_balance() == 20
     assert account.withdraw(19.99) == True
     assert account.get_balance() == pytest.approx(.01, abs=1e-2)
+    assert account.withdraw(0) == False
 
 
 
